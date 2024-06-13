@@ -24,9 +24,15 @@ app.use(limiter);
 
 // Rota GET
 app.get("/", (req: Request, res: Response) => {
-  res.send("albicocche la sfida backend");
-});
+  // Cria um objeto para a resposta
+  const response = {
+    message: "albicocche la sfida backend",
+    status: "success"
+  };
 
+  // Envia o objeto como uma resposta JSON
+  res.json(response);
+});
 // Iniciar o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
