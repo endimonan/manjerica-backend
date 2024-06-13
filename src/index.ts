@@ -26,7 +26,7 @@ app.use(limiter);
 app.get("/", (req: Request, res: Response) => {
   // Cria um objeto para a resposta
   const response = {
-    message: "albicocche la sfida backend do xandeira e do endeira",
+    message: "albicocche la sfida backend do xandeira, do endeira e da fernandeira",
     status: "success"
   };
 
