@@ -26,7 +26,7 @@ app.use(limiter);
 app.get("/", (req: Request, res: Response) => {
   // Cria um objeto para a resposta
   const response = {
-    message: "albicocche la sfida backend, deploy webhook agora vai 5 chega", 
+    message: "albicocche la sfida backend, deploy webhook agora vai 6", 
     status: "success"
   };
 
