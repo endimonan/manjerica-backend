@@ -33,6 +33,17 @@ app.get("/", (req: Request, res: Response) => {
   // Envia o objeto como uma resposta JSON
   res.json(response);
 });
+
+app.get("/test", (req: Request, res: Response) => {
+  // Cria um objeto para a resposta
+  const response = {
+    message: "test api", 
+    status: "success"
+  };
+
+  // Envia o objeto como uma resposta JSON
+  res.json(response);
+});
 // Iniciar o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
