@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: endisilveira/albicocche-backend:latest  # Nome da imagem especificado aqui
+    image: endisilveira/albicocche-backend:latest
     ports:
       - "3000:3000"
     environment:
