@@ -2,10 +2,9 @@ import express, { Request, Response } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config();
-
 
 // Configuração do app Express
 const app = express();
@@ -26,24 +25,14 @@ app.use(limiter);
 app.get("/", (req: Request, res: Response) => {
   // Cria um objeto para a resposta
   const response = {
-    message: "Albicocche API v1.0.0b", 
-    status: "success"
+    message: "Albicocche API v1.0.0",
+    status: "success",
   };
 
   // Envia o objeto como uma resposta JSON
   res.json(response);
 });
 
-app.get("/test", (req: Request, res: Response) => {
-  // Cria um objeto para a resposta
-  const response = {
-    message: "test api", 
-    status: "success"
-  };
-
-  // Envia o objeto como uma resposta JSON
-  res.json(response);
-});
 // Iniciar o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
