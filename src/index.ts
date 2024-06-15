@@ -1,39 +1,10 @@
-import express, { Request, Response } from "express";
-import helmet from "helmet";
-import cors from "cors";
-import rateLimit from "express-rate-limit";
-import dotenv from "dotenv";
+import express from "express";
+import bodyParser from "body-parser";
+import sensorRoutes from "../routes/sensorRoutes";
 
-dotenv.config();
-
-// Configuração do app Express
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Middleware de Segurança
-app.use(helmet()); // Configura cabeçalhos de segurança
-app.use(cors()); // Permite controle sobre CORS
+app.use(bodyParser.json());
+app.use("/api", sensorRoutes);
 
-// Limitação de taxa de requisições
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 100, // Limita cada IP a 100 requisições por janela de tempo
-});
-app.use(limiter);
-
-// Rota GET
-app.get("/", (req: Request, res: Response) => {
-  // Cria um objeto para a resposta
-  const response = {
-    message: "Manjerica API v1.0.0",
-    status: "success",
-  };
-
-  // Envia o objeto como uma resposta JSON
-  res.json(response);
-});
-
-// Iniciar o servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+export default app;
